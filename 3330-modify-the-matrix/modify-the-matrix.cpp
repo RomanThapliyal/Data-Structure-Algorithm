@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> modifiedMatrix(vector<vector<int>>& matrix) {
-        
         for(int j=0;j<matrix[0].size();j++){
             int max=INT_MIN;
             for(int i=0;i<matrix.size();i++){
