@@ -2,7 +2,6 @@ class Solution {
 public:
     int findTheLongestBalancedSubstring(string s) {
         int n=s.size();
-        if(n==0){return n;}
         int maxLen=0;
         int i=0;
         while(i<n){
