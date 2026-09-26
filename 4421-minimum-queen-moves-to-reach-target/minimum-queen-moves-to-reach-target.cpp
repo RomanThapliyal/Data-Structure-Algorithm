@@ -1,11 +1,8 @@
 class Solution {
 public:
     int minQueenMoves(vector<int>& source, vector<int>& target) {
-        int sr=source[0];
-        int sc=source[1];
-        int tr=target[0],tc=target[1];
-        if(sr==tr&&sc==tc){return 0;}
-        if(sr==tr||sc==tc||sr+sc==tr+tc||sr-sc==tr-tc){return 1;}
+        if(source[0]==target[0]&&source[1]==target[1]){return 0;}
+        if(source[0]==target[0]||source[1]==target[1]||source[0]+source[1]==target[0]+target[1]||source[0]-source[1]==target[0]-target[1]){return 1;}
         return 2;
     }
 };
