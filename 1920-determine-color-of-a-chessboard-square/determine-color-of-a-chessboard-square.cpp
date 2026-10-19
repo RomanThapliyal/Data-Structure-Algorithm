@@ -1,12 +1,8 @@
 class Solution {
 public:
     bool squareIsWhite(string coordinates) {
-        //97=a
-        int row=98-coordinates[0];
-        int col=coordinates[1];
-        if((row%2==0&&col%2==0) || (row%2!=0&&col%2!=0)){
-            return false;
-        }
-        return true;
+        int row=coordinates[0]-'a'+1;
+        int col=coordinates[1]-'0';
+        return row%2 != col%2;
     }
 };
