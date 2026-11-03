@@ -2,15 +2,13 @@ class Solution {
 public:
     vector<int> replaceElements(vector<int>& arr) {
         int n = arr.size();
+        int rightMax = -1;
 
-        for(int i=0;i<n-1;i++){
-            int localMax = INT_MIN;
-            for(int j=i+1;j<n;j++){
-                localMax = max(localMax, arr[j]);
-            }
-            arr[i] = localMax;
+        for(int i=n-1;i>=0;i--){
+            int current = arr[i];
+            arr[i] = rightMax;
+            rightMax = max(rightMax, current);
         }
-        arr[n-1] = -1;
 
         return arr;
     }
