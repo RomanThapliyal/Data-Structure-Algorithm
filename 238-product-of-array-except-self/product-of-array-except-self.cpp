@@ -1,26 +1,21 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        int product=1;
-        vector<int>ans;
-        int freqOfZeros=0;
-        for(int x:nums){
-            if(x==0){
-                freqOfZeros++;
-                continue;
-            }
-            product*=x;
+        int n = nums.size();
+        vector<int> ans(n,1);
+
+        int left = 1;
+        for(int i=0;i<n;i++){
+            ans[i] = left;
+            left *= nums[i];
         }
-        for(int x:nums){
-            if(freqOfZeros>1){
-                ans.push_back(0);
-            }
-            else if(freqOfZeros==1){
-                if(x==0) ans.push_back(product);
-                else ans.push_back(0);
-            }
-            else ans.push_back(product/x);
+
+        int right = 1;
+        for(int i=n-1;i>=0;i--){
+            ans[i] *= right;
+            right *= nums[i];
         }
+
         return ans;
     }
 };
